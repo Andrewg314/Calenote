@@ -34,18 +34,3 @@ cd client
 npm install
 npm run dev
 ```
-
-## Project Structure
-```
-server/
-    app.py
-    __init__.py
-    db.py
-    controllers/
-    services/
-    repositories/
-    models/
-
-client/
-    src/
-```
