@@ -23,12 +23,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Create a `.env` file:
-```
-DATABASE_URL=postgresql://user:password@localhost:5432/calenote
-SECRET_KEY=your_secret_key
-```
-
 Run:
 ```
 python server/app.py
@@ -51,7 +45,6 @@ server/
     services/
     repositories/
     models/
-    utils/
 
 client/
     src/
