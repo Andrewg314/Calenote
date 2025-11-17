@@ -6,6 +6,6 @@ class User(Base):
 
     user_id = Column(Integer, primary_key=True)
     username = Column(String, unique=True, nullable=False)
-    hashed_password = Column(String, nullable=False) # encrypted
+    password = Column(String, nullable=False) # encrypted
     first_name = Column(String, nullable=False)
     last_name = Column(String, nullable=False)
