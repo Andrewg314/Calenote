@@ -1,8 +1,11 @@
 from flask import Flask
-from db import Base
-from controllers.auth_controller import auth_bp
-from controllers.notes_controller import notes_bp
-from controllers.events_controller import events_bp
+from .controllers.auth_controller import auth_bp
+from .controllers.notes_controller import notes_bp
+from .controllers.events_controller import events_bp
+from dotenv import load_dotenv
+
+# load .env file variables
+load_dotenv()
 
 # Create app and register blueprints
 def create_app():
