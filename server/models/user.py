@@ -8,4 +8,4 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     password = Column(String, nullable=False) # encrypted
     first_name = Column(String, nullable=False)
-    last_name = Column(String, nullable=False)
+    last_name = Column(String, nullable=False)  
