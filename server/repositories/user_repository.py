@@ -2,7 +2,9 @@ from sqlalchemy import text
 from db import engine
 
 class UserRepository:
-    def create_user(self, user):
+
+    @staticmethod
+    def create_user(user):
         with engine.begin() as sesh:
             sesh.execute(
                 text("INSERT INTO users (username, password, first_name, last_name) VALUES (:u, :p, :f, :l)"),
@@ -13,10 +15,9 @@ class UserRepository:
                     "l": user.last_name
                  }
             )
-            
-            sesh.commit()
 
-    def username_exists(self, username):
+    @staticmethod
+    def username_exists(username):
         with engine.connect() as sesh:
             result = sesh.execute(
                 text("SELECT 1 FROM users WHERE username = :u"),
@@ -25,7 +26,8 @@ class UserRepository:
 
         return result is not None
 
-    def get_user_credentials(self, username): 
+    @staticmethod
+    def get_user_credentials(username): 
         with engine.connect() as sesh:
             result = sesh.execute(
                 text("SELECT user_id, password FROM users WHERE username = :username"),
@@ -40,7 +42,8 @@ class UserRepository:
             "hashed_pw": result["password"]
         }
     
-    def get_user_by_id(self, user_id):
+    @staticmethod
+    def get_user_by_id(user_id):
         with engine.connect() as sesh:
             result = sesh.execute(
                 text("SELECT username, first_name, last_name FROM users WHERE user_id = :user_id"),
